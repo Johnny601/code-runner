@@ -1,4 +1,6 @@
 server:
+  servlet:
+    context-path: /executor
   port: 63010
 spring:
   application:
