@@ -20,6 +20,7 @@ public class CodeExecutionServiceImpl implements CodeExecutionService {
 
         // create temporary file
         File tempFile = null;
+
         try {
             tempFile = File.createTempFile(progLangName, fileExtension);
         } catch (Exception e) {
@@ -34,17 +35,19 @@ public class CodeExecutionServiceImpl implements CodeExecutionService {
             throw new Error("Failed to write code to temp file", e);
         }
 
+        // execute the code in the file
         List<String> command = new ArrayList<>();
         command.add(executable);
         command.add(tempFile.getAbsolutePath());
         ProcessBuilder processBuilder = new ProcessBuilder(command);
-
+        processBuilder.redirectErrorStream(true);
         try {
             Process p = processBuilder.start();
-
             return new String(p.getInputStream().readAllBytes());
         } catch (IOException e) {
             throw new Error("Failed to run process", e);
+        } finally {
+            tempFile.delete();
         }
     }
 }
