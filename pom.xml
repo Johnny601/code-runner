@@ -15,6 +15,7 @@
     <version>0.0.1-SNAPSHOT</version>
 
     <modules>
+        <module>code-runner-common</module>
         <module>code-runner-executor</module>
     </modules>
 
@@ -29,13 +30,56 @@
         </dependencies>
     </dependencyManagement>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
+<!--    <build>-->
+<!--        <finalName>${project.name}</finalName>-->
+<!--        &lt;!&ndash;编译打包过虑配置&ndash;&gt;-->
+<!--&lt;!&ndash;        <resources>&ndash;&gt;-->
+<!--&lt;!&ndash;            <resource>&ndash;&gt;-->
+<!--&lt;!&ndash;                <directory>src/main/resources</directory>&ndash;&gt;-->
+<!--&lt;!&ndash;                <filtering>true</filtering>&ndash;&gt;-->
+<!--&lt;!&ndash;                <includes>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <include>**/*</include>&ndash;&gt;-->
+<!--&lt;!&ndash;                </includes>&ndash;&gt;-->
+<!--&lt;!&ndash;            </resource>&ndash;&gt;-->
+<!--&lt;!&ndash;            <resource>&ndash;&gt;-->
+<!--&lt;!&ndash;                <directory>src/main/java</directory>&ndash;&gt;-->
+<!--&lt;!&ndash;                <includes>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <include>**/*.xml</include>&ndash;&gt;-->
+<!--&lt;!&ndash;                </includes>&ndash;&gt;-->
+<!--&lt;!&ndash;            </resource>&ndash;&gt;-->
+<!--&lt;!&ndash;        </resources>&ndash;&gt;-->
+<!--        <plugins>-->
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-compiler-plugin</artifactId>-->
+<!--                <configuration>-->
+<!--                    &lt;!&ndash;指定项目源码jdk的版本&ndash;&gt;-->
+<!--                    <source>${java.version}</source>-->
+<!--                    &lt;!&ndash;指定项目编译后的jdk的版本&ndash;&gt;-->
+<!--                    <target>${java.version}</target>-->
+<!--                    &lt;!&ndash;配置注解预编译&ndash;&gt;-->
+<!--&lt;!&ndash;                    <annotationProcessorPaths>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <path>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <groupId>org.projectlombok</groupId>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <artifactId>lombok</artifactId>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <version>${org.projectlombok.version}</version>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </path>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </annotationProcessorPaths>&ndash;&gt;-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+
+<!--            &lt;!&ndash;责处理项目资源文件并拷贝到输出目录，如果有额外的资源文件目录则需要配置&ndash;&gt;-->
+<!--&lt;!&ndash;            <plugin>&ndash;&gt;-->
+<!--&lt;!&ndash;                <groupId>org.apache.maven.plugins</groupId>&ndash;&gt;-->
+<!--&lt;!&ndash;                <artifactId>maven-resources-plugin</artifactId>&ndash;&gt;-->
+<!--&lt;!&ndash;                <version>3.3.0</version>&ndash;&gt;-->
+<!--&lt;!&ndash;                <configuration>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <encoding>utf-8</encoding>&ndash;&gt;-->
+<!--&lt;!&ndash;                    &lt;!&ndash;使用默认分隔符，resource中可以使用分割符定义过虑的路径&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                    <useDefaultDelimiters>true</useDefaultDelimiters>&ndash;&gt;-->
+<!--&lt;!&ndash;                </configuration>&ndash;&gt;-->
+<!--&lt;!&ndash;            </plugin>&ndash;&gt;-->
+<!--        </plugins>-->
+<!--    </build>-->
 
 </project>
