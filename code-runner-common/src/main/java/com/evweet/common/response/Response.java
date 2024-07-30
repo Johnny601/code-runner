@@ -8,9 +8,8 @@ import java.io.Serializable;
 public class Response<T> implements Serializable {
 
     private Integer code; //编码：1成功，0和其它数字为失败
-    private String msg; //错误信息
+    private String message; //错误信息
     private T data; //数据
-
     public static <T> T getData(T dataset) {
         return dataset;
     }
@@ -28,9 +27,9 @@ public class Response<T> implements Serializable {
         return response;
     }
 
-    public static <E> Response<E> error(String msg) {
+    public static <E> Response<E> error(String message) {
         Response<E> response = new Response<>();
-        response.msg = msg;
+        response.message = message;
         response.code = 0;
         return response;
     }

@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 @Data
 @AllArgsConstructor
-public class PlaygroundExecutionResult implements Serializable {
+public class PlaygroundExecutionResult {
     private Integer code;
     private String content;
 }

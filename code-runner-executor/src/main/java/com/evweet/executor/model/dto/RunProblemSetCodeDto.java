@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class RunProblemSetCodeDto {
-    String problemName;
+    Long problemId;
     String progLang;
     String codeToExecute;
 }

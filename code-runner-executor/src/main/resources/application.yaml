@@ -5,3 +5,15 @@ server:
 spring:
   application:
     name: executor-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/code_runner_executor
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true

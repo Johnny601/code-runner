@@ -17,17 +17,46 @@
     <modules>
         <module>code-runner-common</module>
         <module>code-runner-executor</module>
+        <module>code-runner-auth</module>
     </modules>
 
 
 
     <properties>
         <java.version>17</java.version>
+        <fastjson.version>2.0.52</fastjson.version>
+        <mysql.version>8.0.33</mysql.version>
+        <jwt.version>0.11.5</jwt.version>
     </properties>
     <dependencyManagement>
         <dependencies>
-
+            <dependency>
+                <groupId>com.alibaba.fastjson2</groupId>
+                <artifactId>fastjson2</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+            <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-api</artifactId>
+            <version>${jwt.version}</version>
+        </dependency>
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-impl</artifactId>
+                <version>${jwt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-jackson</artifactId> <!-- or jjwt-gson if Gson is preferred -->
+                <version>${jwt.version}</version>
+            </dependency>
         </dependencies>
+
     </dependencyManagement>
 
 <!--    <build>-->

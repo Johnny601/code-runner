@@ -6,10 +6,20 @@ import lombok.Data;
 public class TestCaseResult {
     Integer code;
 
+    Boolean passed;
+
     String inputArguments;
 
     // correct answer
     String expectedResult;
 
-    String actualResult;
+    String executionResult;
+
+    public TestCaseResult() {
+        // set failed by default
+        this.code = 0;
+        this.passed = false;
+    }
+
+
 }
