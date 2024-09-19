@@ -30,9 +30,11 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter   {
 
         String authHeader = request.getHeader("Authorization");
         String jwt = authHeader.substring(7);
+        System.out.println(jwt);
         String userId = "";
         try {
             userId = JwtUtil.extractClaim(jwt, Claims::getSubject);
+            System.out.println("User ID: " + userId);
         } catch (SignatureException e) {
             return;
         }

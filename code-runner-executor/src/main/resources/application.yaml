@@ -3,10 +3,12 @@ server:
     context-path: /executor
   port: 63010
 spring:
+  profiles:
+    active: dev
   application:
     name: executor-service
   datasource:
-    url: jdbc:mysql://localhost:3306/code_runner_executor
+    url: jdbc:mysql://mysql-service/code_runner_executor
     username: root
     password: 1234
     driver-class-name: com.mysql.cj.jdbc.Driver

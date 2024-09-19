@@ -73,6 +73,7 @@ public class CodeExecutionServiceImpl implements CodeExecutionService {
             Process p = processBuilder.start();
             // read the data
             byte[] bytes = p.getInputStream().readAllBytes();
+            p.waitFor(4, TimeUnit.SECONDS);
 
             if (p.exitValue() == ExitCode.SUCCESS.getCode()) {
                 // execution succeeded
@@ -81,7 +82,7 @@ public class CodeExecutionServiceImpl implements CodeExecutionService {
                 // execution failed
                 return new PlaygroundExecutionResult(0, new String(bytes));
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             throw new Error("Failed to run process", e);
         } finally {
             tempFile.delete();
@@ -141,6 +142,7 @@ public class CodeExecutionServiceImpl implements CodeExecutionService {
                     Process p = processBuilder.start();
                     // read the data
                     byte[] bytes = p.getInputStream().readAllBytes();
+                    p.waitFor(4, TimeUnit.SECONDS);
 
                     TestCaseResult testCaseResult = new TestCaseResult();
                     testCaseResult.setInputArguments(String.join(" ", inputArguments));

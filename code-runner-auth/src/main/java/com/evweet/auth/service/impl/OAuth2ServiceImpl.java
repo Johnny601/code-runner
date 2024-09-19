@@ -7,6 +7,7 @@ import com.evweet.auth.enums.AuthType;
 import com.evweet.auth.model.entity.RcUser;
 import com.evweet.auth.service.OAuth2Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -30,6 +31,9 @@ public class OAuth2ServiceImpl implements OAuth2Service {
 
     @Autowired
     RestTemplate restTemplate;
+
+    @Value("${web-uri}")
+    private String webUri;
 
     public String authenticate(AuthType authType, String code) {
         ClientRegistration clientRegistration = clientRegistrationRepository.findByRegistrationId(authType.getValue());
@@ -90,6 +94,6 @@ public class OAuth2ServiceImpl implements OAuth2Service {
             userRepository.save(userToSave);
         }
 
-        return "http://localhost:3000/login?id=" + oauth2Id + "&authType=" + authType;
+        return webUri + "/login?id=" + oauth2Id + "&authType=" + authType;
     }
 }

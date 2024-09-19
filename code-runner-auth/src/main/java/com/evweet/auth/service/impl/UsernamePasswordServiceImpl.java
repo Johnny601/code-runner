@@ -33,6 +33,7 @@ public class UsernamePasswordServiceImpl implements UsernamePasswordService {
         String usernameEntered = loginDto.getUsername();
         String passwordEntered = loginDto.getPassword();
         AuthType authType = AuthType.valueOf(loginDto.getAuthType());
+
         switch (authType) {
             case LOCAL:
                 rcUser = userRepository.findByUsername(usernameEntered).orElseThrow(() -> new RuntimeException("User not found"));

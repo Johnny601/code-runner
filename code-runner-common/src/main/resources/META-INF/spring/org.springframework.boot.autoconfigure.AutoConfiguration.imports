@@ -1,1 +1,2 @@
 com.evweet.common.handler.GlobalExecptionHandler
+com.evweet.common.property.CorsProperties

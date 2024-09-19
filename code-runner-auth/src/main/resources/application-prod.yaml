@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/code_runner_auth
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            redirect-uri:  http://192.168.109.100:30037/auth/oauth2/code/github

@@ -2,7 +2,9 @@ package com.evweet.auth.config;
 
 import com.evweet.auth.dao.UserRepository;
 import com.evweet.auth.model.entity.RcUser;
+import com.evweet.common.property.CorsProperties;
 import com.evweet.common.response.Response;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -36,16 +38,20 @@ public class SecurityConfig {
                 .authorizeHttpRequests(req ->
                         req.anyRequest().permitAll())
                 .oauth2Login(Customizer.withDefaults())
+                // do not create session for authenticated users
                 .sessionManagement(session -> session.sessionCreationPolicy(STATELESS));
 
         return http.build();
     }
 
+    @Autowired
+    CorsProperties corsProperties;
+
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowCredentials(true);
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000"));
+        configuration.setAllowedOrigins(corsProperties.getAllowedOrigins());
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));
         configuration.setAllowedHeaders(Arrays.asList("*"));
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
